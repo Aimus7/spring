@@ -1,0 +1,77 @@
+////Strategy.java  -----------
+
+
+package behavioural;
+
+public interface Strategy {
+
+	public void doOperation(int num1, int num2);
+}
+
+
+////multiply.java -------------
+
+
+package behavioural;
+
+public class multiply implements Strategy {
+
+	public void doOperation(int num1, int num2) {
+		// TODO Auto-generated method stub
+		int result=num1*num2;
+		System.out.print(result);
+	}
+
+}
+
+////Addoperation.java---------
+
+package behavioural;
+
+public class Addoperation implements Strategy{
+
+	public void doOperation(int num1, int num2) {
+		// TODO Auto-generated method stub
+		int result = num1 +num2;
+		System.out.print(result);
+		
+	}
+	
+
+}
+
+
+////Context.java-----------
+
+package behavioural;
+
+public class Context {
+	Strategy s;
+	public Context(Strategy s)
+	{
+		super();
+		this.s = s;
+	}
+public void executeStrategy(int num1,int num2)
+{
+	s.doOperation(num1,num2);
+}
+}
+
+
+////Behavioraldemo.java-----------
+
+package behavioural;
+
+public class beahviourdemo {
+ public static void main(String[] args) {
+	 Strategy s;
+	 s= new Addoperation();
+	 Context c= new Context(s);
+	 c.executeStrategy(12,45);
+ }
+}
+
+
+
+
